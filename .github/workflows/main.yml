@@ -1,4 +1,4 @@
-name: Training GitHub Action Workflow
+name: Push Action Workflow
 
 on: push
 jobs:
