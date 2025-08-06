@@ -1,0 +1,20 @@
+name: Training GitHub Action Workflow
+
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Project build pipeline on ubuntu
+        run: echo ' Project build pipeline in progress...' 
+  test:
+    runs-on: windows-latest
+    steps: 
+     - name: Test build on windows 
+       run: echo 'Test build on windows'
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Build deployment pipelines
+       run: echo 'Deploy build to ubuntu'
