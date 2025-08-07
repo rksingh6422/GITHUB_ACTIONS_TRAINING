@@ -1,0 +1,17 @@
+name: Java Setup Workflow
+# Controls when the workflow will run
+on:
+ # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+ java-setup:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Setup Java JDK
+     uses: actions/setup-java@v4.7.1
+     with:
+       java-version: '21'
+       distribution: microsoft
+   - name: Print OpenJDK Java Version
+     run:  java -version
