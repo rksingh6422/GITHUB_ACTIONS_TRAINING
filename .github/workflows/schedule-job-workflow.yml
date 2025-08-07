@@ -1,5 +1,3 @@
-# Schedule jobs using cron expression which started with Actions
-
 name: scheduled job workflow
 
 # Controls when the workflow will run
