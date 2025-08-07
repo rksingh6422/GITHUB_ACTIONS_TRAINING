@@ -20,6 +20,3 @@ jobs:
         # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo executing process in every 5 minutes
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
