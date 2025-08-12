@@ -5,7 +5,7 @@ on:
     types: [ "opened","syncronized" ]
     branches:
       - main
-      - 'dev-**'
+      - 'develop'
       - 'release/**'
     paths-ignore:
       - '.github/workflows/**'  
