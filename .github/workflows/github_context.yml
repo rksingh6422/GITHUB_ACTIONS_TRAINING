@@ -1,0 +1,33 @@
+# Github workflow for context
+
+name: Github Context Workflow
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "github_context_example"
+  github_context_example:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Info about Github
+      run: |
+        echo 'Repository details ${{github.repository}}'
+        echo 'Repo id ${{github.repository_id}}'
+        echo 'Repo url ${{github.repositoryUrl}}'
+        echo 'Repo token ${{github.token}}'
+        echo 'Workflow name ${{github.workflow}}'
+        echo 'Actor ${{github.actor}}'
+        echo  'ref details ${{github.ref}}'
+        echo 'trigger event $${{github.event_name}}'
+        echo 'Run id ${{github.run_id}}'
+        echo 'Runner number is ${{github.run_number}}'
+    - name: Conditions Examples
+      if: github.ref ==  'refs/heads/main'
+      run: echo 'deploy'
+    - if: github.event_name == 'pull_request'
+      run: echo 'trigger the workflow'
