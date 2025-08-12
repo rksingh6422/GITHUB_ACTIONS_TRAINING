@@ -1,0 +1,25 @@
+# Github output workflow example
+
+name: Github Output workflow
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  add-message:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    outputs:
+      message: ${{steps.message-id.greeting}}
+    steps:
+      - id: message-id
+        run: | 
+          echo "greeting=Hello Github Actions" >> $GITHUB_OUTPUT
+  display-message:
+    needs: add-message
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{needs.add-message.outputs.message}}
