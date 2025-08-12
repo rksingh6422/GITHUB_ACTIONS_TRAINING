@@ -1,1 +1,2 @@
-Adding new file to test git action even type and filters
+Adding new file to test git action even type and filters.
+Testing more scenarios
