@@ -2,7 +2,7 @@ name: Activity Type and Event Filters
 
 on: 
   pull_request:
-    types: [ "opened","syncronized" ]
+    types: [ "opened","synchronize" ]
     branches:
       - main
       - 'develop'
