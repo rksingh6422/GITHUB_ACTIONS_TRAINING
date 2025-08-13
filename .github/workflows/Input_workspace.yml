@@ -1,0 +1,40 @@
+# Input workflow example
+
+name: Input Workflow Example
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - 'dev'
+          - 'stage'
+          - 'prod'
+      message:
+        description: 'Deployment message'
+        required: false
+        type: string
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "deploy"
+  deploy:
+    # Deploy a build on ubuntu server
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to ${{ github.event.inputs.environment }}
+        run: |
+          echo "Deploying to ${{ github.event.inputs.environment }}..."
+          if [ -n "${{ github.event.inputs.message }}" ]; then
+            echo "Deployment message: ${{ github.event.inputs.message }}"
+          fi
+          # Add your deployment commands here
