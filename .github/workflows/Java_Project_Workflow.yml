@@ -4,7 +4,17 @@ name: Java Project CI Workflow
 
 on:
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:    
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - 'dev'
+          - 'stage'
+          - 'prod'
 jobs:
   # This workflow contains a single job called "buil"
   CI_Non-contrainerization_build:
