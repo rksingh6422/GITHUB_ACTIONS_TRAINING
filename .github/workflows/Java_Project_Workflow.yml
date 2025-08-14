@@ -38,8 +38,9 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: Package
-          path: staging
-      - name: Start Spring Boot Project
-        run: cd staging && java -jar GITHUB_ACTIONS_TRAINING-1.0.jar
-      - name: Test Application
-        run: curl http://localhost:8080
+          path: staging      
+      - name: Run Spring Boot Project
+        run: |
+          nohup cd staging && java -jar GITHUB_ACTIONS_TRAINING-1.0.jar &  
+          sleep 10
+          curl -I http://localhost:8080
