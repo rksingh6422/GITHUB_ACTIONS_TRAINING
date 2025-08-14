@@ -1,0 +1,29 @@
+name: Self Hosted workflow
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Build code
+        run: | 
+          echo "Buidling code..."
+  test:
+    runs-on: self-hosted
+    needs: build # This job depends on the 'build' job
+    steps:
+      - name: Run tests
+        run: |
+          echo "Testing compiled and build code..." 
+  deploy:
+    runs-on: self-hosted
+    needs: [build,test] # This job depends on the 'test' job
+    steps:
+      - name: Build Deployment 
+        run: |
+          echo "Deploying build..."          
