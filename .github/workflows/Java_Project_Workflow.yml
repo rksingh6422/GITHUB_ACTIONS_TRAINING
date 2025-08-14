@@ -41,6 +41,6 @@ jobs:
           path: staging      
       - name: Run Spring Boot Project
         run: |
-          nohup cd staging && java -jar GITHUB_ACTIONS_TRAINING-1.0.jar &  
+          cd staging && nohup java -jar GITHUB_ACTIONS_TRAINING-1.0.jar &  
           sleep 10
           curl -I http://localhost:8080
