@@ -26,14 +26,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4.2.0
       - name: Setup Java JDK
-        uses: actions/setup-java@v3.14.1
+        uses: actions/setup-java@v4.7.1
         with:
           java-version: 17
           distribution: microsoft
-      - name: Setup Maven
-        uses: aahmed-se/setup-maven@v3
-        with:
-          maven-version: 3.6.1    
+          cache: 'maven'
       - name: Build using maven
         run: mvn --batch-mode --update-snapshots verify
       - run: mkdir staging && cp target/*.jar staging
