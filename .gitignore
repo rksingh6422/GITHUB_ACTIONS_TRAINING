@@ -1,0 +1,31 @@
+# Maven target directory
+target/
+
+# Maven build artifacts
+*.log
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Eclipse IDE files
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
