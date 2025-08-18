@@ -40,12 +40,11 @@ jobs:
           name: Package
           path: staging
       - name: Docker Build Image
-        run: docker build -t rksingh6422/github_action_training:latest .
-      - name: Docker Push Image
-        run: docker push rksingh6422/github_action_training:latest
-      - name: Docker Run Application
-        run: docker run -d -p 8080:8080 rksingh6422/github_action_training:latest --name github_action_training
-        
+        uses: docker/build-push-action@v6.18.0
+        with:
+          context: .
+          push: true
+          tags: rksingh6422/github_action_training:latest
           
     
     
