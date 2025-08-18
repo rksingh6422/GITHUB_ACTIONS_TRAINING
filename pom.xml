@@ -7,7 +7,7 @@
 
     <artifactId>GITHUB_ACTIONS_TRAINING</artifactId>
     <packaging>jar</packaging>
-    <name>Spring Boot Hello World Example</name>
+    <name>Github Actions Training with Docker</name>
     <version>1.0</version>
     <parent>
         <groupId>org.springframework.boot</groupId>

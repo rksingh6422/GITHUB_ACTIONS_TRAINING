@@ -1,4 +1,4 @@
-package com.mkyong;
+package com.github.actions;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ public class HelloController {
 
     @RequestMapping("/")
     String hello() {
-        return "Hello World, Spring Boot!";
+        return "Welcome!!! Github Actions Training with Docker and Kubernetes";
     }
 
 }

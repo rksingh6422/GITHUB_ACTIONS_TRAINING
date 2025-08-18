@@ -1,4 +1,4 @@
-package com.mkyong;
+package com.github.actions;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
