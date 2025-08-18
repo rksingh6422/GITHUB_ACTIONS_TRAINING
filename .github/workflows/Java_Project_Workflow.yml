@@ -42,5 +42,6 @@ jobs:
       - name: Run Spring Boot Project
         run: |
           nohup java -jar staging/GITHUB_ACTIONS_TRAINING-1.0.jar &
-          
+          sleep 5000
+          ps -ef | grep java
           
