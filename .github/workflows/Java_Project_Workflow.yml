@@ -40,11 +40,7 @@ jobs:
           name: Package
           path: staging
       - name: Docker Build Image
-        uses: docker/build-push-action@v6.18.0
-        with:
-          context: .
-          push: true
-          tags: rksingh6422/github_action_training:latest
+        run: sudo docker ps
           
     
     
