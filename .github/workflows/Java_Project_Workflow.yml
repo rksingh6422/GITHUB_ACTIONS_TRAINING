@@ -40,7 +40,11 @@ jobs:
           name: Package
           path: staging
       - name: Docker Build Image
-        run: sudo docker ps
+        run: sudo docker build -t rksingh6422/github_action_training:latest .
+      - name: Docker Push Image to Docker Hub
+        run: sudo docker push rksingh6422/github_action_training:latest
+      - name: Docker Run - Start Container
+        run: sudo docker run -d -p 8080:8080 rksingh6422/github_action_training:latest --name github_action_training  
           
     
     
