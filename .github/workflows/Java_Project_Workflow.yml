@@ -38,7 +38,15 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: Package
-          path: staging 
+          path: staging
+      - name: Docker Build Image
+        run: docker build -t rksingh6422/github_action_training:latest .
+      - name: Docker Push Image
+        run: docker push rksingh6422/github_action_training:latest
+      - name: Docker Run Application
+        run: docker run -d -p 8080:8080 rksingh6422/github_action_training:latest --name github_action_training
+        
+          
     
     
    
