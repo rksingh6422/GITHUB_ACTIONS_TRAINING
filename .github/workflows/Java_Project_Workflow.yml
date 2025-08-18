@@ -38,9 +38,17 @@ jobs:
         uses: actions/upload-artifact@v4.6.2
         with:
           name: Package
-          path: staging      
-      - name: Run Spring Boot Project
-        run: |
-          nohup java -jar staging/GITHUB_ACTIONS_TRAINING-1.0.jar &
-          ps -ef | grep java
+          path: staging   
+      - name: Deploying Jar file
+        run: cp staging/*.jar /home/ubuntu/demoapp/
+  deploy_build:
+    runs-on: self-hosted
+    needs: CI_Non-contrainerization_build
+    steps:
+     - name: Starting application
+       run: java -jar /home/ubuntu/demoapp/GITHUB_ACTIONS_TRAINING-1.0.jar &
+      
+    
+    
+   
           
