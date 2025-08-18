@@ -41,7 +41,8 @@ jobs:
           path: staging      
       - name: Run Spring Boot Project
         run: |
-          nohup java -jar staging/GITHUB_ACTIONS_TRAINING-1.0.jar > app.log 2>&1 &
+          nohup java -jar staging/GITHUB_ACTIONS_TRAINING-1.0.jar &
+          curl http://localhost:8080
   test_app_url:
     runs-on: self-hosted
     needs: CI_Non-contrainerization_build
