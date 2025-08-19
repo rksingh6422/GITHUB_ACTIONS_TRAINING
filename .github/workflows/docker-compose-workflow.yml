@@ -1,0 +1,46 @@
+# Build Java Project and Create Docker Image Run with docker compose
+
+name: Java Docker Compose CI Workflow
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target deployment environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - 'dev'
+          - 'stage'
+          - 'prod'
+jobs:
+  # This workflow contains a single job called "buil"
+  docker_compose_build:
+    # Deploy a build on ubuntu server
+    runs-on: self-hosted
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.7.1
+        with:
+          java-version: 17
+          distribution: microsoft
+          cache: 'maven'
+      - name: Build using maven
+        run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir staging && cp target/*.jar staging
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: Package
+          path: staging  
+          
+    
+    
+   
+          
