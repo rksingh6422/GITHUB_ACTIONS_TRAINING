@@ -1,9 +1,9 @@
 version: '3.7'
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: github_action_training
+    image: github_action_training:latest
+    build: ./
     ports:
       - 8080:8080
     depends_on:
