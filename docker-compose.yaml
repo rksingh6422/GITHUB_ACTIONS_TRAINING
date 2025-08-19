@@ -16,6 +16,7 @@ services:
     networks:
       - springboot-mysql-network
   mysqldb:
+    container_name: mysql_db
     image: mysql:8.0.33
     ports:
       - 3306:3306
